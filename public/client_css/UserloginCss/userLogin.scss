@@ -1,0 +1,29 @@
+
+.login{
+    margin-bottom: 30px;
+}
+
+.form-div{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;        
+    padding: 20px;
+    height: 70%;
+    form{
+        width: 300px;
+        box-shadow: 2px 3px 16px rgb(228, 228, 228);
+        padding: 20px;
+        border-radius: 10px;
+        .form-group{
+            margin-bottom: 10px;
+        }
+        p a strong{
+            color: black;
+        }
+    }
+    .noAcc, button{
+        margin-top: 10px;
+    }
+}

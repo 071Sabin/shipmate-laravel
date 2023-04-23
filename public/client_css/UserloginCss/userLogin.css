@@ -1,0 +1,28 @@
+.login {
+  margin-bottom: 30px;
+}
+
+.form-div {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  height: 70%;
+}
+.form-div form {
+  width: 300px;
+  box-shadow: 2px 3px 16px rgb(228, 228, 228);
+  padding: 20px;
+  border-radius: 10px;
+}
+.form-div form .form-group {
+  margin-bottom: 10px;
+}
+.form-div form p a strong {
+  color: black;
+}
+.form-div .noAcc, .form-div button {
+  margin-top: 10px;
+}/*# sourceMappingURL=userLogin.css.map */
