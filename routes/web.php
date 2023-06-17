@@ -54,6 +54,7 @@ Route::post('/seller/signup', [SellerController::class, "sellerSignup_process"])
 Route::get('seller/signup/verify', [SellerController::class, "otpSeller"])->name('site.seller.seller_otp');
 Route::post('seller/signup/verify', [SellerController::class, "otpSeller_process"]);
 
+
 Route::get('seller/home', [sellerController::class, 'seller_home'])->name('site.seller.seller_home');
 
 
