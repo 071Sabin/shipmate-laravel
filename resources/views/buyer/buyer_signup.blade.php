@@ -2,8 +2,6 @@
 
 @section('content')
 
-    <link rel="stylesheet" href="{{ asset('client_css/UserLogincss/userLogin.css') }}">
-
     <div class="form-div right-side">
 
         @if($errors->any())

@@ -1,8 +1,5 @@
 @extends('buyer.buyer_master')
 
-
-    <link rel="stylesheet" href="{{ asset('client_css/UserLogincss/userLogin.css') }}">
-
     @section('content')
         <div class="form-div right-side">
 

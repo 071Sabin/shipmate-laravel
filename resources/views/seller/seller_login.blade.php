@@ -1,8 +1,5 @@
 @extends('seller.seller_master')
 
-
-    <link rel="stylesheet" href="{{ asset('client_css/UserLogincss/userLogin.css') }}">
-
     @section('content')
         <div class="form-div right-side">
 
@@ -33,7 +30,3 @@
             </form>
         </div>
     @endsection
-
-{{-- </body>
-
-</html> --}}
