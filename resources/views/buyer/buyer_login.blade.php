@@ -11,7 +11,7 @@
 
             <h1 class="login" style="font-size: 2rem;">Login <i class="bi bi-person-circle"></i></h1>
 
-            <form action="" class="effect2">
+            <form action="" class="effect2 py-10">
 
                 @csrf
 

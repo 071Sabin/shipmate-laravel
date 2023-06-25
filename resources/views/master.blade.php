@@ -10,8 +10,6 @@
     
     <title>Ship-Mate</title>
     <link rel = "icon" href ="{{ asset('icons/bag-fill.svg') }}" type = "image/x-icon">
-
-    {{-- <link rel="stylesheet" href="{{ asset('client_css/masterCss/master.css') }}"> --}}
 </head>
 
 <body>
