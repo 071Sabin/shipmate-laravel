@@ -10,8 +10,11 @@
             </div>
 
             <h1 class="login" style="font-size: 2rem;">Login <i class="bi bi-person-circle"></i></h1>
+                @if ($error = $errors->first('err'))
+                    <div class="alert alert-danger">{{ $error }}</div>
+                @endif
 
-            <form action="" class="effect2 py-10">
+            <form action="{{ route('site.buyer.buyer_login') }}" class="effect2" method="POST" enctype="multipart/form-data">
 
                 @csrf
 
@@ -24,13 +27,11 @@
                     <label for="exampleInputPassword1">Password</label>
                     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                 </div>
-                <a href="#" class="text-primary">forgot password?</a><br>
+
+                <a href="" class="text-blue-500">Forgot Password?</a><br>
+
                 <button type="submit" class="btn btn-primary">Submit</button>
                 <p class="noAcc">Don't have an account?&nbsp;&nbsp;<a href="{{ route('site.buyer.buyer_signup') }}"><strong>  Signup <i class="bi bi-pencil-square"></i></strong></a></p>
             </form>
         </div>
     @endsection
-
-{{-- </body>
-
-</html> --}}

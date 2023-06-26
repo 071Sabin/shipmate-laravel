@@ -1,8 +1,5 @@
 
 
-
-    <link rel="stylesheet" href="<?php echo e(asset('client_css/UserLogincss/userLogin.css')); ?>">
-
     <?php $__env->startSection('content'); ?>
         <div class="form-div right-side">
 

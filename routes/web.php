@@ -30,13 +30,16 @@ Route::get('/choose', [adminController::class, "askEveryone"])->name('site.user.
 // BUYER ROUTES
 
 Route::get('/buyer/login', [buyerController::class, "buyerLogin"])->name('site.buyer.buyer_login');
-// create a post method here and route to the user home portal
+Route::post('/buyer/login', [buyerController::class, "buyerLogin_process"]);
 
 Route::get('/buyer/signup', [buyerController::class, "buyerSignup"])->name('site.buyer.buyer_signup');
 Route::post('/buyer/signup', [buyerController::class, "buyerSignup_process"]);
 
 Route::get('buyer/signup/verify', [buyerController::class, "otpBuyer"])->name('site.buyer.buyer_otp');
 Route::post('buyer/signup/verify', [buyerController::class, "otpBuyer_process"]);
+
+Route::get('/buyer/welcome', [SellerController::class, "BuyerPortal"])->middleware('auth')->name('site.buyer.portal');
+
 
 
 
@@ -45,33 +48,20 @@ Route::post('buyer/signup/verify', [buyerController::class, "otpBuyer_process"])
 // SELLER ROUTES
 
 Route::get('/seller/login', [SellerController::class, "sellerLogin"])->name('site.seller.seller_login');
-// create a post method here and route to the user home portal
+Route::post('/seller/login', [SellerController::class, "sellerLogin_process"]);
+
 
 Route::get('/seller/signup', [SellerController::class, "sellerSignup"])->name('site.seller.seller_signup');
 Route::post('/seller/signup', [SellerController::class, "sellerSignup_process"]);
-
 
 Route::get('seller/signup/verify', [SellerController::class, "otpSeller"])->name('site.seller.seller_otp');
 Route::post('seller/signup/verify', [SellerController::class, "otpSeller_process"]);
 
 
-Route::get('seller/home', [sellerController::class, 'seller_home'])->name('site.seller.seller_home');
-
-
-
+Route::get('/seller/welcome', [SellerController::class, "SellerPortal"])->middleware('auth')->name('site.seller.portal');
 
 
 // ==================================================================================================================================
 // PRICING ROUTES
 
 Route::get('/pricing', [pricingController::class, "pricing"])->name('site.seller.pricing');
-
-
-
-
-
-
-// ==================================================================================================================================
-// ADMIN ROUTES
-
-// Route::get('/admin/home', [adminController::class, "showAdminHome"])->name('admin.home');

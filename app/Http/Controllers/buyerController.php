@@ -4,12 +4,39 @@ namespace App\Http\Controllers;
 
 use App\Models\buyer;
 use Illuminate\Http\Request;
+use Illuminate\Support\MessageBag;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class buyerController extends Controller
 {
     public function buyerLogin()
     {
+        Auth::logout();
         return view('buyer.buyer_login');
+    }
+
+    
+    public function buyerLogin_process(Request $request)
+    {
+        $request->validate(
+            [
+                "email" => "required|email",
+                "password" => "required|min:6",
+            ]
+        );
+        $errors = new MessageBag;
+        $credentials = $request->only('email', 'password');
+
+
+        if (Auth::guard('web')->attempt($credentials)) {
+            // Authentication passed...
+            return redirect()->route("site.buyer.portal")->with('alert-success', 'You are now logged in.');
+        }
+
+        $errors = new MessageBag(['err' => ['Email and/or password invalid.']]);
+
+        return Redirect::back()->withErrors($errors);
     }
 
     public function buyerSignup()
@@ -67,7 +94,7 @@ class buyerController extends Controller
             ]
         );
 
-        $seller_data = $request->session()->get('buyer_data');
+        $buyer_data = $request->session()->get('buyer_data');
 
         $otp = rand(100000, 999999);
         $message = "Your OTP code for Ship-Mate is: $otp\n";
@@ -81,10 +108,10 @@ class buyerController extends Controller
         if ($user_otp == "123456") {
 
             $buyer = new buyer();
-            $buyer->name = $seller_data['name'];
-            $buyer->phone = $seller_data['phone'];
-            $buyer->email = $seller_data['email'];
-            $buyer->password = $seller_data['password'];
+            $buyer->name = $buyer_data['name'];
+            $buyer->phone = $buyer_data['phone'];
+            $buyer->email = $buyer_data['email'];
+            $buyer->password = $buyer_data['password'];
             $buyer->save();
 
             $request->session()->flash('buyer_otp_verified', true);
@@ -94,4 +121,9 @@ class buyerController extends Controller
             return redirect()->route("site.buyer.buyer_signup");
         }
     }
+
+    public function BuyerPortal(){
+        return view('buyer.buyer_portal');
+    }
+
 }

@@ -2,8 +2,6 @@
 
 <?php $__env->startSection('content'); ?>
 
-    <link rel="stylesheet" href="<?php echo e(asset('client_css/UserLogincss/userLogin.css')); ?>">
-
     <div class="form-div right-side">
 
         <?php if($errors->any()): ?>

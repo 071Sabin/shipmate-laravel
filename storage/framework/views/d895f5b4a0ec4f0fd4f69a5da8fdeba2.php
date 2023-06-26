@@ -1,8 +1,5 @@
 
 
-
-    <link rel="stylesheet" href="<?php echo e(asset('client_css/UserLogincss/userLogin.css')); ?>">
-
     <?php $__env->startSection('content'); ?>
         <div class="form-div right-side">
 
@@ -14,7 +11,7 @@
 
             <h1 class="login" style="font-size: 2rem;">Login <i class="bi bi-person-circle"></i></h1>
 
-            <form action="" class="effect2">
+            <form action="" class="effect2 py-10">
 
                 <?php echo csrf_field(); ?>
 

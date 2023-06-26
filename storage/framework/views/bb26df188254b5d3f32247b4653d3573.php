@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
 
+    <link rel="stylesheet" href="<?php echo e(asset('client_css/UserloginCss/userLogin.css')); ?>">
+
     <title>Ship-Mate</title>
     <link rel = "icon" href ="<?php echo e(asset('icons/bag-fill.svg')); ?>" type = "image/x-icon">
-
-    
 </head>
 
 <body>

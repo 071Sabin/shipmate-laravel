@@ -10,8 +10,6 @@
     
     <title>Ship-Mate</title>
     <link rel = "icon" href ="<?php echo e(asset('icons/bag-fill.svg')); ?>" type = "image/x-icon">
-
-    
 </head>
 
 <body>

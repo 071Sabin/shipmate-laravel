@@ -4,15 +4,43 @@ namespace App\Http\Controllers;
 
 use App\Models\seller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\MessageBag;
 
 class SellerController extends Controller
 {
     public function sellerLogin()
     {
-        // echo "hello login";
+        Auth::logout();
         return view('seller.seller_login');
     }
+
+    public function sellerLogin_process(Request $request)
+    {
+        $request->validate(
+            [
+                "email" => "required|email",
+                "password" => "required|min:6",
+            ]
+        );
+        $errors = new MessageBag;
+        $credentials = $request->only('email', 'password');
+
+
+        if (Auth::attempt($credentials)) {
+            // Authentication passed...
+            return redirect()->route("site.seller.portal")->with('alert-success', 'You are now logged in.');
+        }
+
+        $errors = new MessageBag(['err' => ['Email and/or password invalid.']]);
+
+        return Redirect::back()->withErrors($errors);
+    }
+
+    
 
     public function sellerSignup()
     {
@@ -100,8 +128,8 @@ class SellerController extends Controller
         }
     }
 
-    public function seller_home()
+    public function SellerPortal()
     {
-        return view('seller.seller_home');
+        return view('seller.seller_portal');
     }
 }
